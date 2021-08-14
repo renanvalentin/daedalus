@@ -31,6 +31,11 @@ let
       cluster = "alonzo-purple";
       networkName = "alonzo-purple";
     };
+    alonzo_qa = {
+      cardanoEnv = cardanoLib.environments.alonzo-qa;
+      cluster = "alonzo-qa";
+      networkName = "alonzo-qa";
+    };
   };
   dirSep = if os == "windows" then "\\" else "/";
   configDir = configFilesSource: {
@@ -90,6 +95,7 @@ let
       testnet = "Testnet";
       shelley_qa = "Shelley QA";
       alonzo_purple = "Alonzo Purple";
+      alonzo_qa = "Alonzo QA";
     };
     unsupported = "Unsupported";
     networkSupported = __hasAttr network supportedNetworks;

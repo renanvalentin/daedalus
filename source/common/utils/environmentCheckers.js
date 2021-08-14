@@ -25,7 +25,11 @@ export const evaluateNetwork = (network: ?string) => {
   if (network === MAINNET_FLIGHT) {
     currentNetwork = MAINNET;
   }
-  if (network === 'alonzo-purple') {
+  if (
+    network === 'alonzo-purple' ||
+    network === 'alonzo-qa' ||
+    network === 'alonzo_qa'
+  ) {
     currentNetwork = ALONZO_PURPLE;
   }
   return currentNetwork;
