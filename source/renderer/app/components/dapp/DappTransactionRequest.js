@@ -210,7 +210,7 @@ const DappTransactionRequest = observer((props: Props) => {
       <p className={styles.label}>
         {intl.formatMessage(messages.receiverLabel)}
       </p>
-      <p className={styles.address}>{address}</p>
+      <p className={styles.address}>{address}=========</p>
       <AssetsTransactionConfirmation
         adaAmount={adaAmount}
         assets={assets}

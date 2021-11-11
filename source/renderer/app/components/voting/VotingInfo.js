@@ -282,13 +282,6 @@ export default class VotingInfo extends Component<Props, State> {
                   >
                     <SVGInline svg={downloadAppStoreIcon} />
                   </button>
-                  <div className={styles.qrCode}>
-                    <QRCode
-                      value={appleAppButtonUrl}
-                      size={75}
-                      renderAs="svg"
-                    />
-                  </div>
                 </div>
                 <div className={styles.appStoreItem}>
                   <button
