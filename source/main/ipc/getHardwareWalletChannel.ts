@@ -473,10 +473,12 @@ export const handleHardwareWalletRequests = async (
           // this needs to run asynchronously so the subscription is defined during this phase
           for (const device of devices) {
             // if (!unsubscribed) {
-            const descriptor: string = device.path;
-            console.log('descriptor************************', descriptor);
-            const deviceModel = identifyUSBProductId(device.productId);
-            observer.next({ type: 'add', descriptor, device, deviceModel });
+            if (!devicesMemo[device.path]) {
+              const descriptor: string = device.path;
+              console.log('descriptor************************', descriptor);
+              const deviceModel = identifyUSBProductId(device.productId);
+              observer.next({ type: 'add', descriptor, device, deviceModel });
+            }
             // }
           }
         });
@@ -620,6 +622,11 @@ export const handleHardwareWalletRequests = async (
   });
   getCardanoAdaAppChannel.onRequest(async (request) => {
     const { path } = request;
+
+    console.log(
+      'getCardanoAdaAppChannel===============================',
+      request
+    );
 
     try {
       if (!path || !devicesMemo[path]) {
